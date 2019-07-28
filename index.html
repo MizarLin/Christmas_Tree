@@ -1,0 +1,72 @@
+<!--    * 　　-->
+<!--   *** 　 -->
+<!--  *****   -->
+<!-- *******  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>輸入聖誕樹的高度，然後用*組合出來</title>
+</head>
+
+<body>
+
+    <p id="tree"></p>
+
+    <script>
+        // ※ 注意要用　全形的＊　和　全形的空白 ※
+
+        // 分解動作
+        // 1. 觀察列和星星數量的變化: 星星數量 = 最終列 + 最終列 - 1
+        //    1＝>1、2=>3、3=>5、4=>7、5=>9
+        // 2. 觀察列和空白數量的變化: 假設以四列舉例
+        //    第一列：1=>3、5=>7
+        //    第二列：1=>2、6=>7
+        //    第三列：1=>1、7=>7
+        //    第四列：
+        // 3. 觀察星星中間位置: 中間位置 = 最終列
+
+        var stars = '';
+        var nostar = '';
+        var trees = '';
+        for (var j = 1; j <= 10; j++) {
+
+            for (var n = 10 - j; n > 0; n--) {
+                // nostar = nostar + '&emsp;';
+                nostar = nostar + '&emsp;';
+            }
+
+            for (var i = 0; i < j * 2 - 1; i++) {
+                stars = stars + '＊';
+            }
+            // nostar = nostar + "<br>";
+            // stars = stars + "<br>";
+            trees = trees + nostar + stars + "<br>" + "<br>";
+            nostar = '';
+            stars = '';
+        }
+        // document.getElementById('tree').innerHTML = stars;
+        // document.getElementById('tree').innerHTML = nostar;
+        document.getElementById('tree').innerHTML = trees;
+
+        // var star = '';
+        // var trees = '';
+        // for (var i = 1; i < 5; i++) {
+        //     for (var j = 0; j < 3 + i; j++) {
+        //         if (j <= 3-i) {
+        //             trees = trees + 'ｏ';
+        //         } else {
+        //             star = star + '＊';
+        //         }
+        //     }
+        //     trees = trees + star + "<br>";
+        //     star = '';
+        //     // stars = stars + "<br>";
+        //     // trees = nostar + "<br>";
+        // }
+        // document.getElementById('tree').innerHTML = trees;
+    </script>
+</body>
+
+</html>
